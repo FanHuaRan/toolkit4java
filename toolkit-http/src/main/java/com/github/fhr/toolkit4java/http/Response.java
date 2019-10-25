@@ -1,4 +1,4 @@
-package com.fhr.github.toolkit4java.http;
+package com.github.fhr.toolkit4java.http;
 
 import java.util.Map;
 
