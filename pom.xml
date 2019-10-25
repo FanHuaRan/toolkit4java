@@ -16,6 +16,7 @@
     <packaging>pom</packaging>
 
     <properties>
+        <project.version>1.0</project.version>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <httpclient.version>4.5.2</httpclient.version>
@@ -23,11 +24,17 @@
         <guava.version>18.0</guava.version>
         <commons-lang3.version>3.4</commons-lang3.version>
         <fastjson.version>1.2.51</fastjson.version>
+        <zxing.core.version>3.4.0</zxing.core.version>
         <junit.version>4.12</junit.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.github.fhr</groupId>
+                <artifactId>toolkit-image</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
             <!-- httpclient -->
             <dependency>
@@ -74,6 +81,13 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- 二维码 -->
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>${zxing.core.version}</version>
             </dependency>
 
             <!-- test -->

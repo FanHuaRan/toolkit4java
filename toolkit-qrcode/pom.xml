@@ -11,5 +11,15 @@
 
     <artifactId>toolkit-qrcode</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github.fhr</groupId>
+            <artifactId>toolkit-image</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
