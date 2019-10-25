@@ -1,10 +1,8 @@
-package com.fhr.github.toolkit4java.http;
+package com.github.fhr.toolkit4java.http;
 
 import org.junit.Test;
 
 import java.io.IOException;
-
-import static org.junit.Assert.*;
 
 public class HttpToolTest {
 
