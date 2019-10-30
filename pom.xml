@@ -12,6 +12,7 @@
         <module>toolkit-qrcode</module>
         <module>toolkit-image</module>
         <module>toolkit-document</module>
+        <module>toolkit-crawler</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -33,6 +34,12 @@
             <dependency>
                 <groupId>com.github.fhr</groupId>
                 <artifactId>toolkit-image</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.fhr</groupId>
+                <artifactId>toolkit-http</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
