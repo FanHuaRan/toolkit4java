@@ -27,6 +27,11 @@
         <fastjson.version>1.2.51</fastjson.version>
         <zxing.core.version>3.4.0</zxing.core.version>
         <junit.version>4.12</junit.version>
+        <slf4j-api.version>1.7.20</slf4j-api.version>
+        <logback.version>1.2.3</logback.version>
+        <commons-compiler.version>3.0.8</commons-compiler.version>
+        <janino.version>2.6.1</janino.version>
+        <commons-io.version>2.2</commons-io.version>
     </properties>
 
     <dependencyManagement>
@@ -95,6 +100,39 @@
                 <groupId>com.google.zxing</groupId>
                 <artifactId>core</artifactId>
                 <version>${zxing.core.version}</version>
+            </dependency>
+
+            <!-- slf4j-api -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+
+            <!-- logback -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <!-- janino -->
+            <dependency>
+                <groupId>org.codehaus.janino</groupId>
+                <artifactId>janino</artifactId>
+                <version>${janino.version}</version>
+            </dependency>
+
+            <!-- commons-io -->
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
             </dependency>
 
             <!-- test -->
