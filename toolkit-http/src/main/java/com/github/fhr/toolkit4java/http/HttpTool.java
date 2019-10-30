@@ -345,7 +345,7 @@ public class HttpTool {
              CloseableHttpResponse closeableHttpResponse = httpClient.execute(httpUriRequest)) {
             Response response = new Response();
             response.setStatusCode(closeableHttpResponse.getStatusLine().getStatusCode());
-            response.setHeaders(Stream.of(closeableHttpResponse.getAllHeaders()).collect(Collectors.toMap(header -> header.getName(), header -> header.getValue())));
+            response.setHeaders(Stream.of(closeableHttpResponse.getAllHeaders()).collect(Collectors.toMap(header -> header.getName(), header -> header.getValue(), (p,q) ->p+";"+"q")));
             response.setContentType(closeableHttpResponse.getEntity().getContentType().getValue());
             response.setContent(EntityUtils.toByteArray(closeableHttpResponse.getEntity()));
 
