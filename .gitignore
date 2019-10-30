@@ -36,5 +36,5 @@ hs_err_pid*
 target/
 
 # special temp
-LingTemplateCrawler
-LubanTemplateCrawler
+LingTemplateCrawler.java
+LubanTemplateCrawler.java
