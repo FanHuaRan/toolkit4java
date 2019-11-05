@@ -6,7 +6,9 @@ import com.alibaba.fastjson.JSONObject;
 import com.github.fhr.toolkit4java.http.HttpTool;
 import com.github.fhr.toolkit4java.http.Response;
 import com.github.fhr.toolkit4java.image.ImageUtils;
+import com.github.fhr.toolkit4java.security.MD5Utils;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,6 +60,7 @@ public class LubanTemplateCrawler {
 
     /**
      * save templates
+     *
      * @throws IOException
      */
     public void crawTemplates() throws IOException {
@@ -88,6 +91,7 @@ public class LubanTemplateCrawler {
             String infoFileName = templateDirName + "\\info.json";
             String previewImageFileName = templateDirName + "\\preview.png";
             String metaFileName = templateDirName + "\\meta.json";
+            String resourceDir = templateDirName + "\\resources";
 
             // 不需要重复爬取
             if (new File(infoFileName).exists() && new File(previewImageFileName).exists() && new File(metaFileName).exists()) {
@@ -95,7 +99,7 @@ public class LubanTemplateCrawler {
             }
 
             try {
-                Thread.sleep(5000 + new Random().nextInt(5000));
+                Thread.sleep(15000 + new Random().nextInt(5000));
             } catch (InterruptedException e) {
                 // ignore
             }
@@ -104,12 +108,35 @@ public class LubanTemplateCrawler {
             FileUtils.write(new File(infoFileName), JSON.toJSONString(templateInfo));
             String templateMeta = getTemplateMeta(templateId);
             FileUtils.write(new File(metaFileName), templateMeta);
+            JSONObject metaObject = JSON.parseObject(templateMeta);
+            JSONObject resultObject = metaObject.getJSONObject("result");
+            String backgroundUrl = resultObject.getString("backgroundUrl");
+            if (StringUtils.isNotBlank(backgroundUrl)) {
+                saveImage(backgroundUrl, resourceDir);
+            }
+            JSONArray layers = resultObject.getJSONArray("layers");
+            if (layers != null) {
+                for (Object value : layers) {
+                    JSONObject layer = (JSONObject) value;
+                    String picUrl = layer.getString("picUrl");
+                    if (StringUtils.isNotBlank(picUrl)) {
+                        saveImage(picUrl, resourceDir);
+                    }
+                }
+            }
+
             logger.info("save template success,templateId:{}", templateId);
             return true;
         } catch (Exception er) {
             logger.error("save template fail,templateInfo:{}", templateInfo, er);
             return false;
         }
+    }
+
+    private void saveImage(String imageUrl, String resourceDir) {
+        String imageFile = resourceDir + "\\" + MD5Utils.md5(imageUrl) + MD5Utils.md5(imageUrl + "dummy") + ".png";
+
+        ImageUtils.saveImageToFile(ImageUtils.readImageFromUrl(imageUrl), "png", imageFile);
     }
 
 
