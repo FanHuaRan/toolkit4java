@@ -13,6 +13,7 @@
         <module>toolkit-image</module>
         <module>toolkit-document</module>
         <module>toolkit-crawler</module>
+        <module>toolkit-security</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -45,6 +46,12 @@
             <dependency>
                 <groupId>com.github.fhr</groupId>
                 <artifactId>toolkit-http</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.fhr</groupId>
+                <artifactId>toolkit-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

@@ -20,6 +20,11 @@
             <groupId>com.github.fhr</groupId>
             <artifactId>toolkit-image</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.fhr</groupId>
+            <artifactId>toolkit-security</artifactId>
+        </dependency>
+
         <!-- slf4j-api -->
         <dependency>
             <groupId>org.slf4j</groupId>
