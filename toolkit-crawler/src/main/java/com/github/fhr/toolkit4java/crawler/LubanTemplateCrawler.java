@@ -82,16 +82,16 @@ public class LubanTemplateCrawler {
         logger.info("success:{},fail:{}", successCount, failCount);
     }
 
-    private boolean saveTemplate(JSONObject templateInfo) throws IOException {
+    private boolean saveTemplate(JSONObject templateInfo) {
         try {
             Long templateId = templateInfo.getLong("templateId");
             String name = templateInfo.getString("name");
             String previewUrl = templateInfo.getString("previewUrl");
-            String templateDirName = String.format("%s\\%s_%s", savePath, name, templateId);
-            String infoFileName = templateDirName + "\\info.json";
-            String previewImageFileName = templateDirName + "\\preview.png";
-            String metaFileName = templateDirName + "\\meta.json";
-            String resourceDir = templateDirName + "\\resources";
+            String templateDirName = String.format("%s%s%s_%s", savePath, File.separator, name, templateId);
+            String infoFileName = templateDirName + File.separator + "info.json";
+            String previewImageFileName = templateDirName + File.separator + "preview.png";
+            String metaFileName = templateDirName + File.separator + "meta.json";
+            String resourceDir = templateDirName + File.separator + "resources";
 
             // 不需要重复爬取
             if (new File(infoFileName).exists() && new File(previewImageFileName).exists() && new File(metaFileName).exists()) {
@@ -134,11 +134,10 @@ public class LubanTemplateCrawler {
     }
 
     private void saveImage(String imageUrl, String resourceDir) {
-        String imageFile = resourceDir + "\\" + MD5Utils.md5(imageUrl) + MD5Utils.md5(imageUrl + "dummy") + ".png";
+        String imageFile = resourceDir + File.separator + MD5Utils.md5(imageUrl) + MD5Utils.md5(imageUrl + "dummy") + ".png";
 
         ImageUtils.saveImageToFile(ImageUtils.readImageFromUrl(imageUrl), "png", imageFile);
     }
-
 
     private String getTemplateList() throws IOException {
         Map<String, Object> headers = getHeaders();
