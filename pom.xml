@@ -33,6 +33,7 @@
         <commons-compiler.version>3.0.8</commons-compiler.version>
         <janino.version>2.6.1</janino.version>
         <commons-io.version>2.2</commons-io.version>
+        <twelvemonkeys.version>3.4.2</twelvemonkeys.version>
     </properties>
 
     <dependencyManagement>
@@ -142,16 +143,21 @@
                 <version>${commons-io.version}</version>
             </dependency>
 
-            <!--twelvemonkeys java-ImageIO扩展，从而支持cmyk,tiff多种格式-->
+            <!--twelvemonkeys java-ImageIO扩展，从而支持cmyk,tiff等多种格式-->
             <dependency>
                 <groupId>com.twelvemonkeys.imageio</groupId>
                 <artifactId>imageio-jpeg</artifactId>
-                <version>3.4.2</version>
+                <version>${twelvemonkeys.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.twelvemonkeys.imageio</groupId>
                 <artifactId>imageio-tiff</artifactId>
-                <version>3.4.2</version>
+                <version>${twelvemonkeys.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.twelvemonkeys.imageio</groupId>
+                <artifactId>imageio-psd</artifactId>
+                <version>${twelvemonkeys.version}</version>
             </dependency>
 
             <!-- test -->
