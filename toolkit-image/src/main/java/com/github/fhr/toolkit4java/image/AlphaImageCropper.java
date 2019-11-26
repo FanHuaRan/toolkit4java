@@ -51,8 +51,8 @@ public class AlphaImageCropper {
         }
 
         // step3: cut image
-        int cropWidth = maxX - minX;
-        int cropHeight = maxY - minY;
+        int cropWidth = maxX - minX + 1;
+        int cropHeight = maxY - minY + 1;
         return inputImage.getSubimage(minX, minY, cropWidth, cropHeight);
     }
 
