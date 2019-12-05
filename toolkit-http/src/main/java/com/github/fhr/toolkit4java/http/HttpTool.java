@@ -216,19 +216,17 @@ public class HttpTool {
             httpPost.setHeader(entry.getKey(), entry.getValue());
         }
 
-        // todo 添加param
-        List<NameValuePair> pairList = new ArrayList<>(params.size());
-        for (Map.Entry<String, String> entry : params.entrySet()) {
-            NameValuePair pair = new BasicNameValuePair(entry.getKey(), entry.getValue() == null ? "" : String.valueOf(entry.getValue()));
-            pairList.add(pair);
-        }
-
         httpPost.setConfig(requestConfig);
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         //解决上传文件，文件名中文乱码问题
         builder.setCharset(StandardCharsets.UTF_8);
         //设置浏览器兼容模式
         builder.setMode(HttpMultipartMode.BROWSER_COMPATIBLE);
+        // 添加params
+        for (Map.Entry<String, String> entry : params.entrySet()) {
+            builder.addTextBody(entry.getKey(), entry.getValue());
+        }
+
         //将java.io.File对象添加到HttpEntity（org.apache.http.HttpEntity）对象中
         for (Map.Entry<String, File> entry : files.entrySet()) {
             builder.addPart(entry.getKey(), new FileBody(entry.getValue()));
