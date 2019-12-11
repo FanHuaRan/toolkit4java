@@ -15,6 +15,7 @@
         <module>toolkit-crawler</module>
         <module>toolkit-security</module>
         <module>toolkit-api</module>
+        <module>toolkit-image-grab</module>
     </modules>
     <packaging>pom</packaging>
 
