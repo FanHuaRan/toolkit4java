@@ -9,23 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>toolkit-qrcode</artifactId>
+    <artifactId>toolkit-pmml</artifactId>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.jpmml/pmml-evaluator -->
         <dependency>
-            <groupId>com.github.fhr</groupId>
-            <artifactId>toolkit-image</artifactId>
+            <groupId>org.jpmml</groupId>
+            <artifactId>pmml-evaluator</artifactId>
+            <version>1.4.15</version>
         </dependency>
         <dependency>
-            <groupId>com.google.zxing</groupId>
-            <artifactId>core</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/ognl/ognl -->
-        <dependency>
-            <groupId>ognl</groupId>
-            <artifactId>ognl</artifactId>
-            <version>3.2.12</version>
+            <groupId>org.jpmml</groupId>
+            <artifactId>pmml-evaluator-extension</artifactId>
+            <version>1.4.15</version>
         </dependency>
     </dependencies>
-
 </project>
