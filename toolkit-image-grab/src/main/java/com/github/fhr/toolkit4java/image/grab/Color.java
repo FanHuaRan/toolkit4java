@@ -31,6 +31,20 @@ public class Color {
         return blue;
     }
 
+    /**
+     * 计算颜色距离
+     *
+     * @param color
+     * @return
+     */
+    public double colorDistance(Color color) {
+        int absR = color.getRed() - this.red;
+        int absG = color.getGreen() - this.green;
+        int absB = color.getBlue() - this.blue;
+
+        return  Math.sqrt(absR * absR + absG * absG + absB * absB);
+    }
+
     @Override
     public String toString() {
         return "Color{" +

@@ -12,6 +12,10 @@
     <artifactId>toolkit-image-grab</artifactId>
 
     <dependencies>
+        <dependency>
+            <groupId>com.github.fhr</groupId>
+            <artifactId>toolkit-image</artifactId>
+        </dependency>
         <!-- test -->
         <dependency>
             <groupId>junit</groupId>
