@@ -17,6 +17,7 @@
         <module>toolkit-api</module>
         <module>toolkit-image-grab</module>
         <module>toolkit-qiniu</module>
+        <module>toolkit-pmml</module>
     </modules>
     <packaging>pom</packaging>
 
