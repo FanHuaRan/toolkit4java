@@ -36,7 +36,7 @@
         <logback.version>1.2.3</logback.version>
         <commons-compiler.version>3.0.8</commons-compiler.version>
         <janino.version>2.6.1</janino.version>
-        <commons-io.version>2.2</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <twelvemonkeys.version>3.4.2</twelvemonkeys.version>
     </properties>
 
